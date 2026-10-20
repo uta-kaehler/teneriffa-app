@@ -1,0 +1,41 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="tile">
+      <rect width="180" height="180" rx="32.4" ry="32.4"/>
+    </clipPath>
+    <!-- subtle radial glow behind summit -->
+    <radialGradient id="glow" cx="50%" cy="48%" r="35%">
+      <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g clip-path="url(#tile)">
+    <!-- Background: deep anthracite-forest -->
+    <rect width="180" height="180" fill="#121c12"/>
+    <!-- subtle summit glow -->
+    <rect width="180" height="180" fill="url(#glow)"/>
+    <!-- Stars -->
+    <circle cx="21.6" cy="14.4" r="1.7" fill="#C9A84C" opacity="0.55"/>
+<circle cx="50.4" cy="23.4" r="1.2" fill="#C9A84C" opacity="0.55"/>
+<circle cx="75.6" cy="12.6" r="1.4" fill="#C9A84C" opacity="0.55"/>
+<circle cx="111.6" cy="18.0" r="1.5" fill="#C9A84C" opacity="0.55"/>
+<circle cx="140.4" cy="10.8" r="1.2" fill="#C9A84C" opacity="0.55"/>
+<circle cx="158.4" cy="25.2" r="1.4" fill="#C9A84C" opacity="0.55"/>
+<circle cx="36.0" cy="39.6" r="1.1" fill="#C9A84C" opacity="0.55"/>
+<circle cx="90.0" cy="32.4" r="1.2" fill="#C9A84C" opacity="0.55"/>
+<circle cx="129.6" cy="39.6" r="1.1" fill="#C9A84C" opacity="0.55"/>
+<circle cx="63.0" cy="50.4" r="1.0" fill="#C9A84C" opacity="0.55"/>
+<circle cx="153.0" cy="50.4" r="1.2" fill="#C9A84C" opacity="0.55"/>
+<circle cx="18.0" cy="63.0" r="0.9" fill="#C9A84C" opacity="0.55"/>
+<circle cx="117.0" cy="57.6" r="1.0" fill="#C9A84C" opacity="0.55"/>
+<circle cx="165.6" cy="68.4" r="0.9" fill="#C9A84C" opacity="0.55"/>
+<circle cx="86.4" cy="68.4" r="0.8" fill="#C9A84C" opacity="0.55"/>
+    <!-- Crescent moon -->
+    <circle cx="147.6" cy="21.599999999999998" r="5.04" fill="#C9A84C" opacity="0.35"/>
+<circle cx="149.61599999999999" cy="21.095999999999997" r="3.9312" fill="#1a2a1a"/>
+    <!-- Teide silhouette -->
+    <path d="M0.0,151.9 L21.1,151.9 L42.2,133.6 L54.5,126.6 L61.5,119.5 L70.3,109.0 L77.3,112.5 L82.6,103.7 L87.2,94.9 L90.0,86.1 L94.2,93.2 L100.2,103.7 L110.7,112.5 L121.3,105.5 L133.6,116.0 L145.9,124.8 L158.2,137.1 L180.0,151.9 L180.0,180.0 L0.0,180.0 Z" fill="#C9A84C" opacity="0.92"/>
+    <!-- Thin golden summit highlight -->
+    <circle cx="90.0" cy="86.1" r="1.1" fill="#E8C96A"/>
+  </g>
+</svg>
