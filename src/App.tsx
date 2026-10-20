@@ -20,7 +20,7 @@ import Richtung from "@/pages/richtung";
 import NotFound from "@/pages/not-found";
 import { startQueueProcessor } from "@/lib/offline-queue";
 import { applyAstroModeClass } from "@/lib/astro-mode";
-import { startGeoTracking } from "@/lib/visited";
+import { startGeoTrackingWennErlaubt } from "@/lib/visited";
 import { SPOTS } from "@/data/spots";
 import { registerServiceWorker, startScheduler } from "@/lib/notifications";
 import { buildEvents } from "@/lib/events";
@@ -62,7 +62,7 @@ function App() {
 
   useEffect(() => {
     const stopQueue = startQueueProcessor();
-    const stopGeo = startGeoTracking(SPOTS.map((s) => ({ id: s.id, lat: s.lat, lng: s.lng })));
+    const stopGeo = startGeoTrackingWennErlaubt(SPOTS.map((s) => ({ id: s.id, lat: s.lat, lng: s.lng })));
     void registerServiceWorker(import.meta.env.BASE_URL);
     const stopScheduler = startScheduler(() => buildEvents());
     return () => {

@@ -159,3 +159,20 @@ export function getCurrentPosition(): Promise<GeolocationPosition> {
     });
   });
 }
+
+/**
+ * Startet das Mitverfolgen erst, wenn der Standort schon erlaubt ist oder später erlaubt wird
+ * (z. B. über den GPS-Knopf auf der Karte). So fragt die Seite beim Öffnen nicht ungefragt nach dem Standort.
+ */
+export function startGeoTrackingWennErlaubt(spots: SpotLite[]): () => void {
+  let stop: (() => void) | null = null;
+  let aus = false;
+  const starten = () => { if (!stop && !aus) stop = startGeoTracking(spots); };
+  if (typeof navigator !== "undefined" && navigator.permissions && navigator.permissions.query) {
+    navigator.permissions.query({ name: "geolocation" as PermissionName }).then((status) => {
+      if (status.state === "granted") starten();
+      status.onchange = () => { if (status.state === "granted") starten(); };
+    }).catch(() => {});
+  }
+  return () => { aus = true; if (stop) stop(); };
+}

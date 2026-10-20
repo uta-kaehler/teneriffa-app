@@ -140,8 +140,11 @@ export default function Karte() {
 
   useEffect(() => subscribeVisited(() => setVisited(getVisitedIds())), []);
 
+  // Den eigenen Standort nur zeigen, wenn er schon erlaubt ist; gefragt wird erst über den GPS-Knopf
   useEffect(() => {
-    getCurrentPosition()
+    if (!navigator.permissions?.query) return;
+    navigator.permissions.query({ name: "geolocation" as PermissionName })
+      .then((status) => (status.state === "granted" ? getCurrentPosition() : Promise.reject()))
       .then((pos) => {
         const { latitude: lat, longitude: lng } = pos.coords;
         setMe([lat, lng]);
